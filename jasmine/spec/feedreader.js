@@ -78,7 +78,7 @@ $(function() {
             let menuHidden = true;
             menuIcon.click();
             menuHidden = $('body').hasClass('menu-hidden');
-            expect(isHidden).not.toBe(true);
+            expect(menuHidden).not.toBe(true);
             menuIcon.click();
             menuHidden = $('body').hasClass('menu-hidden');
             expect(menuHidden).toBe(true);
