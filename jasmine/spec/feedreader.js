@@ -31,7 +31,7 @@ $(function() {
          * in each feed of the allFeeds object
          */
         it('URL should be defined', function() {
-            var urlsNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('url') === false);
+            let urlsNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('url') === false);
             expect(urlsNotDefined.length).toEqual(0);
         });
 
@@ -39,7 +39,7 @@ $(function() {
          * in each feed of the allFeeds object
          */
         it('URL should not be empty', function() {
-            var emptyUrlFeeds = allFeeds.filter(feed =>  feed.url === '');
+            let emptyUrlFeeds = allFeeds.filter(feed =>  feed.url === '');
             expect(emptyUrlFeeds.length).toEqual(0);
         });
 
@@ -47,7 +47,7 @@ $(function() {
          * in each feed of the allFeeds object
          */
         it('name should be defined', function() {
-            var nameNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('name') === false);
+            let nameNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('name') === false);
             expect(nameNotDefined.length).toEqual(0);
         });
 
@@ -55,7 +55,7 @@ $(function() {
          * in each feed of the allFeeds object
          */
         it('name should not be empty', function() {
-            var emptyNameFeeds = allFeeds.filter(feed =>  feed.name === '');
+            let emptyNameFeeds = allFeeds.filter(feed =>  feed.name === '');
             expect(emptyNameFeeds.length).toEqual(0);
         });
     });
@@ -108,14 +108,14 @@ $(function() {
         /* This is a test that ensures when a new feed is loaded
          * by the loadFeed function the content is different.
          */
-        var prevFirstFeed;
+        let prevFirstFeed;
         beforeEach(function(done) {
             loadFeed(0);
             prevFirstFeed = $('.feed').children()[0].href; // Save the first entry from the initial feed
             loadFeed(1, done);
         });
         it('The feed content should change upon new feed selection', function(){
-            var currFirstFeed = $('.feed').children()[0].href; // Save the first entry from the current feed
+            let currFirstFeed = $('.feed').children()[0].href; // Save the first entry from the current feed
             // Check against the first entries to check if content has changed
             expect(currFirstFeed === prevFirstFeed).toBe(false);
         });
