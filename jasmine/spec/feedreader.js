@@ -111,11 +111,12 @@ $(function() {
         var prevFirstFeed;
         beforeEach(function(done) {
             loadFeed(0);
-            prevFirstFeed = $('.feed').children()[0].href;
+            prevFirstFeed = $('.feed').children()[0].href; // Save the first entry from the initial feed
             loadFeed(1, done);
         });
         it('The feed content should change upon new feed selection', function(){
-            var currFirstFeed = $('.feed').children()[0].href;
+            var currFirstFeed = $('.feed').children()[0].href; // Save the first entry from the current feed
+            // Check against the first entries to check if content has changed
             expect(currFirstFeed === prevFirstFeed).toBe(false);
         });
     });
