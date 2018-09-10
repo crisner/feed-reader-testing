@@ -43,11 +43,21 @@ $(function() {
             expect(emptyUrlFeeds.length).toEqual(0);
         });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
+        /* This is a test to check if name is defined
+         * in each feed of the allFeeds object
          */
+        it('name should be defined', function() {
+            var nameNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('name') === false);
+            expect(nameNotDefined.length).toEqual(0);
+        });
+
+        /* This is a test to check if name is not empty
+         * in each feed of the allFeeds object
+         */
+        it('name should not be empty', function() {
+            var emptyNameFeeds = allFeeds.filter(feed =>  feed.name === '');
+            expect(emptyNameFeeds.length).toEqual(0);
+        });
     });
 
 
