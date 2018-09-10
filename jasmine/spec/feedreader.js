@@ -27,14 +27,17 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
+        /* This is a test to check if url is defined
+         * in each feed of the allFeeds object
          */
         it('URL should be defined', function() {
             var urlsNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('url') === false);
             expect(urlsNotDefined.length).toEqual(0);
         });
+
+        /* This is a test to check if url is not empty
+         * in each feed of the allFeeds object
+         */
         it('URL should not be empty', function() {
             var emptyUrlFeeds = allFeeds.filter(feed =>  feed.url === '');
             expect(emptyUrlFeeds.length).toEqual(0);
