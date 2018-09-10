@@ -35,6 +35,10 @@ $(function() {
             var urlsNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('url') === false);
             expect(urlsNotDefined.length).toEqual(0);
         });
+        it('URL should not be empty', function() {
+            var emptyUrlFeeds = allFeeds.filter(feed =>  feed.url === '');
+            expect(emptyUrlFeeds.length).toEqual(0);
+        });
 
 
         /* TODO: Write a test that loops through each feed
