@@ -27,36 +27,24 @@ $(function() {
         });
 
 
-        /* This is a test to check if url is defined
+        /* This is a test to check if url is defined and is not empty
          * in each feed of the allFeeds object
          */
-        it('URL should be defined', function() {
-            let urlsNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('url') === false);
-            expect(urlsNotDefined.length).toEqual(0);
+        it('URL should be defined and should not be empty', function() {
+            allFeeds.map(feed => {
+                expect(feed.url).toBeDefined();
+                expect(feed.url.length).not.toBe(0);
+            });
         });
 
-        /* This is a test to check if url is not empty
+        /* This is a test to check if name is defined and is not empty
          * in each feed of the allFeeds object
          */
-        it('URL should not be empty', function() {
-            let emptyUrlFeeds = allFeeds.filter(feed =>  feed.url === '');
-            expect(emptyUrlFeeds.length).toEqual(0);
-        });
-
-        /* This is a test to check if name is defined
-         * in each feed of the allFeeds object
-         */
-        it('name should be defined', function() {
-            let nameNotDefined = allFeeds.filter(feed => feed.hasOwnProperty('name') === false);
-            expect(nameNotDefined.length).toEqual(0);
-        });
-
-        /* This is a test to check if name is not empty
-         * in each feed of the allFeeds object
-         */
-        it('name should not be empty', function() {
-            let emptyNameFeeds = allFeeds.filter(feed =>  feed.name === '');
-            expect(emptyNameFeeds.length).toEqual(0);
+        it('name should be defined and should not be empty', function() {
+            allFeeds.map(feed => {
+                expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toBe(0);
+            });
         });
     });
 
