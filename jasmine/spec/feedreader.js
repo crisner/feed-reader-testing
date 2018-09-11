@@ -107,16 +107,20 @@ $(function() {
         /* This is a test that ensures when a new feed is loaded
          * by the loadFeed function the content is different.
          */
-        let prevFirstFeed;
+        let firstFeed;
+        let nextFeed;
         beforeEach(function(done) {
-            loadFeed(0);
-            prevFirstFeed = $('.feed').children()[0].href; // Save the first entry from the initial feed
-            loadFeed(1, done);
+            loadFeed(0, function() {
+                firstFeed = $('.feed > a')[0].textContent; // Save the first entry from the initial feed
+                loadFeed(1, function() {
+                    nextFeed = $('.feed > a')[0].textContent; // Save the first entry from the current feed
+                    done();
+                });
+            });
         });
         it('The feed content should change upon new feed selection', function(){
-            let currFirstFeed = $('.feed').children()[0].href; // Save the first entry from the current feed
             // Check against the first entries to check if content has changed
-            expect(currFirstFeed === prevFirstFeed).toBe(false);
+            expect(firstFeed).not.toEqual(nextFeed);
         });
     });
 }());
