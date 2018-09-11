@@ -95,8 +95,7 @@ $(function() {
             loadFeed(0, done);
         });
         it('The feed container should have atleast a single element', function(){
-            let container = $('.feed');
-            let entries =  container.children();
+            let entries =  $('.feed > a');
             expect(entries.length).toBeGreaterThan(0);
         });
     });
