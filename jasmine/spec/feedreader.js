@@ -83,7 +83,7 @@ $(function() {
             loadFeed(0, done);
         });
         it('The feed container should have atleast a single element', function(){
-            let entries =  $('.feed > a');
+            let entries =  $('.feed .entry');
             expect(entries.length).toBeGreaterThan(0);
         });
     });
@@ -99,9 +99,9 @@ $(function() {
         let nextFeed;
         beforeEach(function(done) {
             loadFeed(0, function() {
-                firstFeed = $('.feed > a')[0].textContent; // Save the first entry from the initial feed
+                firstFeed = $('.feed .entry')[0].innerText; // Save the first entry from the initial feed
                 loadFeed(1, function() {
-                    nextFeed = $('.feed > a')[0].textContent; // Save the first entry from the current feed
+                    nextFeed = $('.feed .entry')[0].innerText; // Save the first entry from the current feed
                     done();
                 });
             });
